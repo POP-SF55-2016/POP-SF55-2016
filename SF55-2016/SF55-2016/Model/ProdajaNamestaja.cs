@@ -14,8 +14,8 @@ namespace SF55_2016.Model
         public string Kupac { get; set; }
         public string Sifra { get; set; }
         public List<DodatneUsluga> DodatneUsluge { get; set; }
-        public double PDV { get; set; }
-        public double Cena { get; set; }
+        public const double PDV = 0.02;
+        public double UkupnaCena { get; set; }
 
 
     }

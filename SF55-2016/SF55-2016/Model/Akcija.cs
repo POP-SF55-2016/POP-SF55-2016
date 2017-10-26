@@ -10,9 +10,9 @@ namespace SF55_2016.Model
     {
         public int Id { get; set; }
         public DateTime DatumPocetka { get; set; }
+        public decimal Popust { get; set; }
         public DateTime DatumZavrsetka { get; set; }
         public double ProcenatPopusta { get; set; }
-
         public bool Obrisan { get; set; }
 
     }

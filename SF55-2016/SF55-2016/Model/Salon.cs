@@ -16,7 +16,7 @@ namespace SF55_2016.Model
         public string Web { get; set; }
         public int PIB { get; set; }
         public int MaticniBroj { get; set; }
-        public int BrojZiroRacuna { get; set; }
+        public string BrojZiroRacuna { get; set; }
         public bool Obrisan { get; set; }
 
     }
