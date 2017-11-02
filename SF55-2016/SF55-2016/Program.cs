@@ -1,5 +1,6 @@
 ﻿using SF55_2016.Model;
 using SF55_2016.Tests;
+using SF55_2016.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,9 @@ namespace SF55_2016
     {
         private static List<Namestaj> Namestaj = new List<Namestaj>();
         private static List<TipNamestaja> TipNamestaja = new List<TipNamestaja>();
+
+        public static object TipoviNamestaja { get; private set; }
+
         static void Main(string[] args)
         {
             Salon s1 = new Salon()
@@ -24,7 +28,7 @@ namespace SF55_2016
                 Naziv = "Forma FTNale",
                 PIB = 123123,
                 Telefon = "021/454-3434",
-                Web = "http:///www.ftn.uns.ac.rs"
+                Web = "http://www.ftn.uns.ac.rs"
             };
 
             var tp1 = new TipNamestaja()
@@ -42,6 +46,26 @@ namespace SF55_2016
                 KolicinaUMagacinu = 777,
             };
 
+            var listaTipovaNamestaja = new List<TipNamestaja>();
+            listaTipovaNamestaja.Add(tp1);
+
+
+
+            //GenericSerializer.Serialize<TipNamestaja>("tipovi_namestaja.xml", listaTipovaNamestaja);
+            var listaTipovaNamestaja = Projekat.Instance.TipoviNamestaja;
+
+            var noviTipNamestaja = new TipNamestaja()
+            {
+                Id = listaTipovaNamestaja.Count + 1,
+                Naziv = "Ugaona"
+            };
+
+            listaTipovaNamestaja.Add(noviTipNamestaja);
+            Projekat.Instance.TipoviNamestaja = listaTipovaNamestaja;
+
+            Console.WriteLine("Finished serialization...");
+
+            Console.ReadLine();
 
             Console.WriteLine("Dobrodosli u salon" + s1.Naziv);
 
@@ -169,3 +193,4 @@ namespace SF55_2016
         
     }
 }
+        
